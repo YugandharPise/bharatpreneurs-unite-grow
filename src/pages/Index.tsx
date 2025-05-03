@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -11,18 +10,15 @@ import NewsletterSection from '@/components/NewsletterSection';
 import Footer from '@/components/Footer';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import AnimationObserver from '@/components/AnimationObserver';
-
 const Index = () => {
   // Disable body scroll when modal is open
   useEffect(() => {
     document.title = "Bharatpreneurs | Empowering India's Entrepreneurial Spirit";
   }, []);
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Navbar />
       {/* Add padding-top to account for fixed header */}
-      <div className="pt-[80px]">
+      <div className="pt-[80px] py-0">
         <HeroSection />
         <AboutSection />
         <SuccessStoriesSection />
@@ -34,8 +30,6 @@ const Index = () => {
       </div>
       <ScrollToTopButton />
       <AnimationObserver />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
