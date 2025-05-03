@@ -16,6 +16,7 @@ interface VantaBirdsOptions {
   wingSpan?: number;
   speedLimit?: number;
   separation?: number;
+  quantity?: number;  // Added the quantity property
 }
 
 interface VantaBirds {
