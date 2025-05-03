@@ -1,11 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -14,18 +11,10 @@ const Navbar = () => {
         setScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  return (
-    <header
-      className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled ? 'bg-black/90 backdrop-blur-md py-3' : 'bg-transparent py-5'
-      )}
-    >
+  return <header className="bg-slate-950 rounded-none py-[15px]">
       <div className="container mx-auto flex justify-between items-center">
         <a href="#" className="text-white font-bold text-2xl">
           <span className="text-gold">Bharat</span>preneurs
@@ -50,66 +39,35 @@ const Navbar = () => {
           <a href="#book" className="gold-button rounded">Book a Consultation</a>
         </div>
 
-        <button 
-          className="block md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <button className="block md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {mobileMenuOpen ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            </svg> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          )}
+            </svg>}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <nav className="md:hidden bg-black absolute top-full left-0 w-full border-t border-gray-800">
+      {mobileMenuOpen && <nav className="md:hidden bg-black absolute top-full left-0 w-full border-t border-gray-800">
           <div className="container mx-auto py-4 flex flex-col space-y-4">
-            <a 
-              href="#about" 
-              className="text-white hover:text-gold transition-colors px-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#about" className="text-white hover:text-gold transition-colors px-4" onClick={() => setMobileMenuOpen(false)}>
               About
             </a>
-            <a 
-              href="#success-stories" 
-              className="text-white hover:text-gold transition-colors px-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#success-stories" className="text-white hover:text-gold transition-colors px-4" onClick={() => setMobileMenuOpen(false)}>
               Success Stories
             </a>
-            <a 
-              href="#offerings" 
-              className="text-white hover:text-gold transition-colors px-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#offerings" className="text-white hover:text-gold transition-colors px-4" onClick={() => setMobileMenuOpen(false)}>
               Offerings
             </a>
-            <a 
-              href="#events" 
-              className="text-white hover:text-gold transition-colors px-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#events" className="text-white hover:text-gold transition-colors px-4" onClick={() => setMobileMenuOpen(false)}>
               Events
             </a>
-            <a 
-              href="#book" 
-              className="gold-button rounded mx-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
+            <a href="#book" className="gold-button rounded mx-4" onClick={() => setMobileMenuOpen(false)}>
               Book a Consultation
             </a>
           </div>
-        </nav>
-      )}
-    </header>
-  );
+        </nav>}
+    </header>;
 };
-
 export default Navbar;
