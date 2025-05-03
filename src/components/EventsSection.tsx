@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Sample upcoming events data
 const upcomingEvents = [
@@ -27,6 +28,7 @@ const upcomingEvents = [
 ];
 
 const EventsSection = () => {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
@@ -108,6 +110,10 @@ const EventsSection = () => {
     });
   };
 
+  const handleRegister = (event: any) => {
+    navigate('/event-registration', { state: { eventData: event } });
+  };
+
   return (
     <section id="events" className="section-padding bg-gray-50">
       <div 
@@ -176,7 +182,12 @@ const EventsSection = () => {
                     {formatEventTime(event.date)}
                   </div>
                 </div>
-                <button className="dark-button rounded-md text-sm">Register</button>
+                <button 
+                  className="dark-button rounded-md text-sm"
+                  onClick={() => handleRegister(event)}
+                >
+                  Register
+                </button>
               </div>
             </div>
           ))}

@@ -7,6 +7,7 @@ import SuccessStoriesSection from '@/components/SuccessStoriesSection';
 import OfferingsSection from '@/components/OfferingsSection';
 import EventsSection from '@/components/EventsSection';
 import BookingSection from '@/components/BookingSection';
+import NewsletterSection from '@/components/NewsletterSection';
 import Footer from '@/components/Footer';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import AnimationObserver from '@/components/AnimationObserver';
@@ -26,6 +27,7 @@ const Index = () => {
       <OfferingsSection />
       <EventsSection />
       <BookingSection />
+      <NewsletterSection />
       <Footer />
       <ScrollToTopButton />
       <AnimationObserver />
