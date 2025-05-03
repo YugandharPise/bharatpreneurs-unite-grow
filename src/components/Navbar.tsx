@@ -14,7 +14,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <header className="bg-slate-950 rounded-none py-[15px]">
+  return <header className="rounded-none py-[15px] bg-[charco] bg-charcoal">
       <div className="container mx-auto flex justify-between items-center">
         <a href="#" className="text-white font-bold text-2xl">
           <span className="text-gold">Bharat</span>preneurs
