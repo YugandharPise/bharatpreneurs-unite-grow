@@ -1,12 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -18,13 +15,8 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  return (
-    <header className={cn(
-      "rounded-none py-[15px] bg-charcoal fixed top-0 left-0 right-0 w-full z-50 transition-all",
-      scrolled ? "shadow-lg" : ""
-    )}>
-      <div className="container mx-auto flex justify-between items-center">
+  return <header className={cn("rounded-none py-[15px] bg-charcoal fixed top-0 left-0 right-0 w-full z-50 transition-all", scrolled ? "shadow-lg" : "")}>
+      <div className="container mx-auto flex justify-between items-center my-[10px]">
         <Link to="/" className="text-white font-bold text-2xl">
           <span className="text-gold">Bharat</span>preneurs
         </Link>
@@ -77,8 +69,6 @@ const Navbar = () => {
             </a>
           </div>
         </nav>}
-    </header>
-  );
+    </header>;
 };
-
 export default Navbar;

@@ -1,10 +1,7 @@
-
 import React, { useEffect, useRef } from 'react';
-
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const vantaEffectRef = useRef<any>(null);
-  
   useEffect(() => {
     // Load VANTA.js scripts dynamically
     const loadScripts = async () => {
@@ -12,19 +9,19 @@ const HeroSection = () => {
       const threeScript = document.createElement('script');
       threeScript.src = 'https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js';
       threeScript.async = true;
-      
+
       // Create VANTA Birds script
       const vantaScript = document.createElement('script');
       vantaScript.src = 'https://cdn.jsdelivr.net/npm/vanta@0.5.22/dist/vanta.birds.min.js';
       vantaScript.async = true;
-      
+
       // Add scripts to document
       document.head.appendChild(threeScript);
-      
+
       // Wait for Three.js to load before loading VANTA
       threeScript.onload = () => {
         document.head.appendChild(vantaScript);
-        
+
         // Initialize VANTA after its script loads
         vantaScript.onload = () => {
           if (!vantaEffectRef.current && containerRef.current && window.VANTA) {
@@ -50,9 +47,8 @@ const HeroSection = () => {
         };
       };
     };
-    
     loadScripts();
-    
+
     // Clean up effect on unmount
     return () => {
       if (vantaEffectRef.current) {
@@ -61,9 +57,7 @@ const HeroSection = () => {
       }
     };
   }, []);
-
-  return (
-    <section ref={containerRef} className="relative h-screen flex items-center justify-center bg-charcoal">
+  return <section ref={containerRef} className="relative h-screen flex items-center justify-center bg-charcoal py-0 my-0">
       {/* Content overlay */}
       <div className="container mx-auto text-center relative z-10 px-4 animate-fade-in">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gold mb-4 leading-tight">
@@ -86,24 +80,11 @@ const HeroSection = () => {
       {/* Scroll down indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
         <a href="#about">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            strokeWidth={1.5} 
-            stroke="#FFD700" 
-            className="w-6 h-6"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5" 
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#FFD700" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </a>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
