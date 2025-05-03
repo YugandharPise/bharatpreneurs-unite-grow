@@ -1,6 +1,5 @@
-
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Sample upcoming events data
 const upcomingEvents = [
@@ -182,12 +181,13 @@ const EventsSection = () => {
                     {formatEventTime(event.date)}
                   </div>
                 </div>
-                <button 
+                <Link
+                  to="/event-registration"
+                  state={{ eventData: event }}
                   className="dark-button rounded-md text-sm"
-                  onClick={() => handleRegister(event)}
                 >
                   Register
-                </button>
+                </Link>
               </div>
             </div>
           ))}

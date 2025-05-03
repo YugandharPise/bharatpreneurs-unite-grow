@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
 import Navbar from '@/components/Navbar';
@@ -10,6 +10,11 @@ const EventRegistration = () => {
   const location = useLocation();
   const { toast } = useToast();
   const [formSubmitted, setFormSubmitted] = useState(false);
+  
+  useEffect(() => {
+    // Scroll to top when the page loads
+    window.scrollTo(0, 0);
+  }, []);
   
   // Extract event data from location state, or use defaults
   const eventData = location.state?.eventData || {

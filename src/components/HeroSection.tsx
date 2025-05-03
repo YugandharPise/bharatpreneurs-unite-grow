@@ -43,7 +43,8 @@ const HeroSection = () => {
               birdSize: 2.00,
               wingSpan: 24.00,
               speedLimit: 3.00,
-              separation: 80.00
+              separation: 80.00,
+              quantity: 5
             });
           }
         };

@@ -21,14 +21,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <SuccessStoriesSection />
-      <OfferingsSection />
-      <EventsSection />
-      <BookingSection />
-      <NewsletterSection />
-      <Footer />
+      {/* Add padding-top to account for fixed header */}
+      <div className="pt-[80px]">
+        <HeroSection />
+        <AboutSection />
+        <SuccessStoriesSection />
+        <OfferingsSection />
+        <EventsSection />
+        <BookingSection />
+        <NewsletterSection />
+        <Footer />
+      </div>
       <ScrollToTopButton />
       <AnimationObserver />
     </div>
