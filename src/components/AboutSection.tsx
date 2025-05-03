@@ -41,7 +41,7 @@ const AboutSection = () => {
           </h2>
           <div className="h-1 w-20 bg-gold mb-6"></div>
           <p className="text-gray-700 mb-4">
-            Founded in 2019, Bharatpreneurs is a premium community created to nurture and accelerate India's entrepreneurial ecosystem. We bring together innovators, industry veterans, and investors to share knowledge, forge partnerships, and drive sustainable growth.
+            Founded in 2025 by Summit Tiklle, Bharatpreneurs is a premium community created to nurture and accelerate India's entrepreneurial ecosystem. We bring together innovators, industry veterans, and investors to share knowledge, forge partnerships, and drive sustainable growth.
           </p>
           <p className="text-gray-700 mb-6">
             Our members benefit from exclusive mentorship, networking opportunities, and strategic resources designed to help them navigate challenges and seize opportunities in today's dynamic business landscape.

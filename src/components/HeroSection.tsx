@@ -1,19 +1,69 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const HeroSection = () => {
-  return (
-    <section className="relative h-screen flex items-center justify-center bg-charcoal">
-      {/* Background Video or Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <img
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
-          alt="Entrepreneurs at work"
-          className="w-full h-full object-cover"
-        />
-      </div>
+  const containerRef = useRef<HTMLDivElement>(null);
+  const vantaEffectRef = useRef<any>(null);
+  
+  useEffect(() => {
+    // Load VANTA.js scripts dynamically
+    const loadScripts = async () => {
+      // Create and load Three.js script
+      const threeScript = document.createElement('script');
+      threeScript.src = 'https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js';
+      threeScript.async = true;
+      
+      // Create VANTA Birds script
+      const vantaScript = document.createElement('script');
+      vantaScript.src = 'https://cdn.jsdelivr.net/npm/vanta@0.5.22/dist/vanta.birds.min.js';
+      vantaScript.async = true;
+      
+      // Add scripts to document
+      document.head.appendChild(threeScript);
+      
+      // Wait for Three.js to load before loading VANTA
+      threeScript.onload = () => {
+        document.head.appendChild(vantaScript);
+        
+        // Initialize VANTA after its script loads
+        vantaScript.onload = () => {
+          if (!vantaEffectRef.current && containerRef.current && window.VANTA) {
+            vantaEffectRef.current = window.VANTA.BIRDS({
+              el: containerRef.current,
+              mouseControls: true,
+              touchControls: true,
+              gyroControls: false,
+              minHeight: 200.00,
+              minWidth: 200.00,
+              scale: 1.00,
+              scaleMobile: 1.00,
+              backgroundColor: 0x111111,
+              color1: 0x836c1a,
+              color2: 0xae8a12,
+              birdSize: 2.00,
+              wingSpan: 24.00,
+              speedLimit: 3.00,
+              separation: 80.00
+            });
+          }
+        };
+      };
+    };
+    
+    loadScripts();
+    
+    // Clean up effect on unmount
+    return () => {
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+        vantaEffectRef.current = null;
+      }
+    };
+  }, []);
 
+  return (
+    <section ref={containerRef} className="relative h-screen flex items-center justify-center bg-charcoal">
+      {/* Content overlay */}
       <div className="container mx-auto text-center relative z-10 px-4 animate-fade-in">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gold mb-4 leading-tight">
           Empowering India's <br className="hidden md:block" />

@@ -93,6 +93,10 @@
   .footer-link {
     @apply text-gray-300 hover:text-gold transition-colors duration-200;
   }
+  
+  .registration-form {
+    @apply max-w-3xl mx-auto bg-white shadow-xl rounded-lg p-8 border border-gray-100;
+  }
 }
 
 @layer utilities {
@@ -102,5 +106,18 @@
   
   .glassmorphism {
     @apply backdrop-blur-lg bg-white/10 border border-white/20;
+  }
+  
+  .success-notification {
+    @apply fixed bottom-4 right-4 bg-green-500 text-white py-3 px-6 rounded shadow-lg;
+  }
+  
+  .vanta-background {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
